@@ -137,6 +137,68 @@
             </div>
         </div>
         <!-- 導覽列結束 -->
+
+        <!-- 輪播開始 -->
+        <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100" src="../../assets/images/banner-1.jpg" alt="First slide">
+                </div>
+                <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-21by9" style="height: 598px;">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" allowfullscreen></iframe>
+                </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100" src="../../assets/images/banner-3.jpg" alt="Third slide">
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <!-- 輪播結束 -->
+
+        <!-- 服務說明開始 -->
+            <section class="service d-none d-sm-block">
+                <div class="container">
+                    <div class="row text-center">
+                        <div class="col-4">
+                            <div class="single-item border border-info rounded">
+                            <i class="fa fa-truck fa-4"></i>
+                            <h4>免費運送</h4>
+                            <p  class="text-primary">訂購產品直達你家</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="single-item border border-info rounded">
+                            <i class="fas fa-sync-alt fa-4"></i>
+                            <h4>免費退貨</h4>
+                            <p>30天以內保證退貨</p>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="single-item border border-info rounded">
+                            <i class="far fa-clock fa-4"></i>
+                            <h4>全年無休</h4>
+                            <p>24小時線上營運</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        <!-- 服務說明結束 -->
+
         <!-- 商品清單 -->
         <div class="row mt-4">
             <div class="col-md-4 mb-4" v-for="item in products" :key="item.id">
@@ -457,5 +519,6 @@ this.getCart();
 
 <style scoped>
 @import '../../assets/css/style.css';
+/* @import '../../assets/css/font-awesome.min.css'; */
 </style>
 
