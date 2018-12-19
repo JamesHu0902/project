@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col">
                     <div class="header-default">
-                        <p>您好，歡迎光臨諾頓家具購物網站!</p>
+                        <p>您好，歡迎光臨諾浩家具購物網站!</p>
                     </div>
                     </div>
                     <div class="col">
@@ -20,10 +20,6 @@
                         <a href="#">
                         <i class="fa fa-user"></i>
                         我的帳戶
-                        </a>
-                        <a href="#">
-                        <i class="fa fa-heart"></i>
-                        願望清單
                         </a>
                         <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="fa fa-unlock-alt"></i>
@@ -59,6 +55,84 @@
                     </div>
                     </div>
                 </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10 order-2 order-sm-1">
+                        <nav class="navbar navbar-expand-lg navbar-light">
+                            <a class="navbar-brand header-logo" href="#"><img src="../../assets/images/logo.png"></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-auto text-nowrap">
+                                <li>
+                                <div class="input-group d-flex d-sm-none">
+                                <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                                </div> 
+                                </li>
+                                <li class="nav-item active">
+                                <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">臥室</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    客廳
+                                </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">沙發</a>
+                                    <a class="dropdown-item" href="#">桌子</a>
+                                    <a class="dropdown-item" href="#">擺飾</a>
+                                </div>                      
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">燈光</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">家飾</a>
+                                </li>
+                                <li class="nav-item">
+                                <a class="nav-link" href="#">聯繫</a>
+                                </li>
+                            </ul>
+                            </div>
+                        </nav>              
+                    </div>
+                    <div class="col-md-2 order-1 order-sm-2 text-center">
+                        <ul class="header-bottom-right-inner">
+                            <li class="d-none d-sm-inline-block">
+                            <a href="#" class="cart-toggler search-icon">
+                                <i class="fa fa-search"></i>
+                            </a>
+                            <div class="header-bottom-search">
+                                <form class="search-box" action="#" method="post">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-secondary" type="button"><i class="fa fa-search"></i></button>
+                                        
+                                    </span>
+                                </div>                      
+                                </form>
+                            </div>
+                            </li>
+                            <li>
+                            <a href="#" class="cart-toggler mini-cart-icon">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span>{{cart.carts.length}}</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -262,7 +336,9 @@ return {
     message: ""
     },
     isLoading: false,
-    cart: {},
+    cart: {
+        carts:[],
+    },
     coupon_code: ""
 };
 },
@@ -374,43 +450,12 @@ adminLogin() {
 created() {
 this.getProducts();
 this.getCart();
+
 }
 };
 </script>
 
-<style>
-/* 導覽列會員功能 */
-.header-area .header-top {
-border-bottom: 1px solid #d3d3d3;
-}
-.header-default {
-color: #6e6e6e;
-font-size: 14px;
-line-height: 40px;
-}
-
-.header-default p {
-margin: 0;
-}
-
-.header-user-info {
-padding: 10px 0;
-text-align: right;
-}
-
-.header-user-info a {
-border-left: 1px solid #f1f2f2;
-color: #252525;
-font-size: 12px;
-line-height: 20px;
-padding-left: 14px;
-margin-right: 10px;
-}
-.header-user-info a:hover {
-color: #009a86;
-text-decoration: none;
-}
-.header-logo {
-padding: 30px 0;
-}
+<style scoped>
+@import '../../assets/css/style.css';
 </style>
+
