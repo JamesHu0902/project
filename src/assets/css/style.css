@@ -130,10 +130,10 @@ padding: 30px 0;
     height: 23px;
     line-height: 25px;
     position: absolute;
-    right: -10px;
+    right: 3px;
     text-align: center;
     text-shadow: 0 0 0;
-    top: -10px;
+    top: -5px;
     width: 20px;
 }
 
@@ -189,3 +189,174 @@ padding: 30px 0;
     right: 0;
     width: 283px;
 }
+
+/* 彈出視窗 */
+.modal-head{
+    margin: 10px 0 0 10px;
+}
+.modal .widget .social-icons li {
+    float: left;
+    line-height: 30px;
+    list-style: outside none none;
+    margin: 0 10px 10px 0;
+}
+
+.modal .widget .social-icons li .social-icon {
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    color: #909295;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    width: 40px;
+}
+
+.modal .widget .social-icons li .social-icon.facebook:hover {
+    background: #3b579d none repeat scroll 0 0;
+    border: 1px solid #3b579d;
+}
+.modal .widget .social-icons li .social-icon.twitter:hover {
+    background: #3acaff none repeat scroll 0 0;
+    border: 1px solid #3acaff;
+}
+.modal .widget .social-icons li .social-icon.gplus:hover {
+    background: #d11717 none repeat scroll 0 0;
+    border: 1px solid #d11717;
+}
+.modal .widget .social-icons li .social-icon.instagram:hover {
+    background: #cc0ab2 none repeat scroll 0 0;
+    border: 1px solid #0097bd;
+    }
+.modal .widget .social-icons li .social-icon:hover {
+    color: #ffffff;
+}
+
+/*footer*/
+
+.footer-area {
+    background: #2F2F2F;
+}
+
+.section-padding2 {
+    padding: 30px 0;
+}
+
+h3.footer-widget-title {
+    color: #c38749;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 0 20px;
+    text-transform: uppercase;
+}
+.toggle-footer li {
+    color: #dddddd;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 35px;
+}
+
+.toggle-footer li a {
+    color: #dddddd;
+    font-size: 13px;
+    transition: all 0.3s ease 0s;
+}
+.toggle-footer li a:hover {
+    color: #009A86;
+    text-decoration: none;
+}
+
+.footer-middle {
+    border-top: 1px solid #3b3b3b;
+    overflow: hidden;
+}
+
+.footer-border-right {
+    border-right: 1px solid #3b3b3b;
+}
+
+.footer-middle-content > a {
+    display: inline-block;
+}
+
+.footer-middle-content p {
+    color: #ddd;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 22px;
+    padding-top: 30px;
+}
+
+.social-icon ul {
+    margin: 0;
+    overflow: hidden;
+}
+
+.social-icon ul li {
+    color: #ddd;
+    display: inline;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 35px;
+    margin-right: 10px;
+    overflow: hidden;
+    padding: 11px 0;
+    float: left;
+}
+
+.social-icon ul li a {
+    border: 1px solid #dddddd;
+    border-radius: 100%;
+    color: #dddddd;
+    display: block;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    width: 35px;
+}
+
+.social-icon ul li a:hover {
+    border-color: #3acaff;
+    color: #3acaff;
+}
+
+.contact-area .footer-info.contact ul li {
+    margin-bottom: 10px;
+    padding-left: 45px;
+    position: relative;
+}
+
+.contact-area .footer-info ul li {
+    color: #dddddd;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 35px;
+    overflow: hidden;
+}
+
+.contact-area .footer-info.contact i {
+    border: 2px solid #74797f;
+    border-radius: 100%;
+    color: #ffffff;
+    display: inline-block;
+    font-size: 14px;
+    height: 35px;
+    left: 0;
+    line-height: 31px;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 35px;
+}
+
+.contact-area .footer-info.contact li p {
+    line-height: 20px;
+    margin: 0;
+}
+
+/*麵包屑導覽*/
+nav .breadcrumb a{
+    color: #009A86;
+}
+
