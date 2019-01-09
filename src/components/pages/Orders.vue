@@ -12,8 +12,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, key) in sortOrder" :key="key"
-          v-if="orders.length"
+        <tr v-for="(item, key) in sortOrder" :key="key" v-if="orders.length"
           :class="{'text-secondary': !item.is_paid}">
           <td>{{ item.create_at | date }}</td>
           <td><span v-text="item.user.email" v-if="item.user"></span></td>
@@ -33,14 +32,14 @@
         </tr>
       </tbody>
     </table>
-     <Pagination :pages="pagination" @emitPages="getOrders"></Pagination>
+    <Pagination :pages="pagination" @emitPages="getOrders"></Pagination>
   </div>
 </template>
- 
+
 
 <script>
 import Pagination from '../Pagination';
- export default {
+export default {
   data() {
     return {
       orders: {},

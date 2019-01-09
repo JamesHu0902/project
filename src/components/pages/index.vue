@@ -79,23 +79,23 @@
                                     </div> 
                                     </li>
                                     <li class="nav-item active">
-                                    <a class="nav-link" href="#">首頁 <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link" href="#" @click="getProducts('all')" >首頁</a>
                                     </li>
                                     <li class="nav-item">
-                                    <a class="nav-link" href="#">臥室</a>
+                                    <a class="nav-link" href="#" @click="getProducts('臥室')">臥室</a>
                                     </li>
                                     <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         客廳
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="#">沙發</a>
-                                        <a class="dropdown-item" href="#">桌子</a>
-                                        <a class="dropdown-item" href="#">擺飾</a>
+                                        <a class="dropdown-item" href="#" @click="getProducts('椅子')">椅子</a>
+                                        <a class="dropdown-item" href="#" @click="getProducts('桌子')">桌子</a>
+                                        <a class="dropdown-item" href="#" @click="getProducts('擺飾')">擺飾</a>
                                     </div>                      
                                     </li>
                                     <li class="nav-item">
-                                    <a class="nav-link" href="#">燈光</a>
+                                    <a class="nav-link" href="#" @click="getProducts('燈光')">燈光</a>
                                     </li>
                                     
                                 </ul>
@@ -138,7 +138,8 @@
 
         <!-- 商品清單 -->
             <div class="row mt-4">
-                <div class="col-md-4 mb-4" v-for="item in products" :key="item.id">
+                <div class="col-md-4 mb-4" v-for="item in filterProducts" :key="item.id" 
+                >
                     <div class="card border-0 shadow-sm">
                         <div style="height: 150px; background-size: 
                         cover; background-position: center" :style="{backgroundImage:`url(${item.imageUrl})`}">
@@ -323,7 +324,7 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
                             <button type="button" class="btn btn-danger" 
-                            data-toggle="modal" data-target="#checkoutModel">
+                            data-toggle="modal" data-target="#checkoutModal">
                             結帳</button>
                         </div>
                     </div>
@@ -332,7 +333,7 @@
         <!-- 購物車結束 -->
 
         <!--建立訂單及購物車頁面驗證  -->
-            <div class="modal fade" id="checkoutModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal fade" id="checkoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
@@ -380,7 +381,7 @@
                                 
                                     <div class="form-group">
                                         <label for="useraddress">留言</label>
-                                        <textarea name="" id="" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
+                                        <textarea name="" id="" class="form-control" cols="1" rows="2" v-model="form.message"></textarea>
                                     </div>
                                     <div class="text-right">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -528,7 +529,6 @@ import $ from "jquery";
 export default {
 data() {
 return {
-    visibility:'all',
     products: [],
     product: {},
     status: {
@@ -547,15 +547,17 @@ return {
     cart: {
         carts:[],
     },
-    coupon_code: ""
+    coupon_code: "",
+    visibility:'',
 };
 },
 methods: {
-    getProducts() {
+    getProducts(visibility) {
         const vm = this;
         const url = `${process.env.APIPATH}/api/${
         process.env.CUSTOMPATH
         }/products`;
+        vm.visibility = visibility;
         vm.isLoading = true;
         this.$http.get(url).then(response => {
         vm.products = response.data.products;
@@ -634,12 +636,14 @@ methods: {
         const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order`;
         const order = vm.form;
         // vm.isLoading = true;
+        $('#cartModal').modal('hide')
+        $('#checkoutModal').modal('hide')
         this.$validator.validate().then(result => {
         if (result) {
             this.$http.post(url, { data: order }).then(response => {
             console.log("訂單要求送出", response);
             if (response.data.success) {
-                vm.$router.push(`/customer_checkout/${response.data.orderId}`);
+                vm.$router.push(`/index/customer_checkout/${response.data.orderId}`);
             } else {
                 console.log("訂單建立失敗", response.data.success);
             }
@@ -650,16 +654,30 @@ methods: {
         }
         });
     },
-    // computed:{
-
-    // },
     adminLogin() {
         const vm = this;
         vm.$router.push("/login");
     },
 },
+computed:{
+    filterProducts:function(){
+        const vm = this;
+        if(vm.visibility=='all'){
+            return this.products;
+        }else{
+            var newPorducts =[];
+            vm.products.forEach(function(item){
+                if(vm.visibility == item.category){
+                    newPorducts.push(item);
+                }
+            })
+            return newPorducts;
+        }
+        return [];
+    }
+},
 created() {
-this.getProducts();
+this.getProducts('all');
 this.getCart();
 
 }

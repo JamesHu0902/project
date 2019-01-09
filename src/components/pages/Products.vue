@@ -98,9 +98,14 @@
                     <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="category">分類</label>
-                        <input type="text" class="form-control" id="category"
-                        v-model="tempProduct.category"
-                        placeholder="請輸入分類">
+                        <select name="" class="form-control " v-model="tempProduct.category">
+                            <option value="" selected disabled>---類別---</option>
+                            <option value="臥室">臥室</option>
+                            <option value="椅子">椅子</option>
+                            <option value="桌子">桌子</option>
+                            <option value="擺飾">擺飾</option>
+                            <option value="燈光">燈光</option>
+                        </select>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="price">單位</label>

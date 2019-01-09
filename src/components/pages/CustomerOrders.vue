@@ -160,7 +160,7 @@
                 <div class="form-group">
                     <label for="useraddress">收件人地址</label>
                     <input type="address" class="form-control" name="address"
-                         id="useraddress" v-model="form.user.address" :class="{'is-invalid':errors.has('address')}"
+                        id="useraddress" v-model="form.user.address" :class="{'is-invalid':errors.has('address')}"
                         v-validate="'required'" placeholder="請輸入地址">
                     <span class="text-danger" v-if="errors.has('address')">地址欄位不得留空</span>
                 </div>
@@ -281,16 +281,16 @@ export default{
             const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/order`;
             const order = vm.form;
             // vm.isLoading = true;
-             this.$validator.validate().then((result) => {
+            this.$validator.validate().then((result) => {
                 if (result) {
                     this.$http.post(url, { data: order }).then((response) => {
                         console.log('訂單要求送出',response);
                         if (response.data.success) {
-                            vm.$router.push(`/customer_checkout/${response.data.orderId}`);
+                            vm.$router.push(`/test/customer_checkout/${response.data.orderId}`);
                         }else{
-                           console.log('訂單建立失敗',response.data.success); 
+                        console.log('訂單建立失敗',response.data.success); 
                         }
-                       // vm.getCart();
+                        // vm.getCart();
                         vm.isLoading = false;
                     });
                 }else{

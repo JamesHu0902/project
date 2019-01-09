@@ -18,17 +18,12 @@ export default new Router({
       path:'*',
       redirect:'index',
     },
-
-    // {
-    //   path: '/',
-    //   name: 'HelloWorld',
-    //   component: HelloWorld,
-    //   meta: { requiresAuth: true },
-    // },
+    
     {
       path: '/index',
       name: 'index',
       component: index,
+      
     },
 
     {
@@ -78,20 +73,32 @@ export default new Router({
         },
       ]
     },
-
     {
       path: '/index',
+      name: 'index_CustomerOrders',
+      component: CustomerCheckout,
+      children: [
+        
+        {
+          path: 'customer_checkout/:orderId',
+          name: 'CustomerCheckout',
+          component: CustomerCheckout,
+        },
+      ]
+    },
+    {
+      path: '/test',
       name: 'Dashboard_CustomerOrders',
       component: Dashboard,
       children: [
         {
           path: 'customer_orders',
-          name: 'CustomerOrders',
+          name: 'test_CustomerOrders',
           component: CustomerOrders,
         },
         {
           path: 'customer_checkout/:orderId',
-          name: 'CustomerCheckout',
+          name: 'test_CustomerCheckout',
           component: CustomerCheckout,
         },
       ]
