@@ -40,7 +40,7 @@ export default {
             vm.messages.splice(i, 1);
           }
         });
-      }, 5000);
+      }, 3000);
     },
   },
   created() {
@@ -61,7 +61,7 @@ export default {
 .message-alert {
   position: fixed;
   max-width: 50%;
-  top: 56px;
+  top: 10px;
   right: 20px;
   z-index: 1100;
 }

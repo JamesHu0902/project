@@ -22,7 +22,7 @@ signout(){
     const url = `${process.env.APIPATH}/logout`;
     
     this.$http.post(url).then((response) => {
-        console.log(response.data)
+        console.log('登出')
         if(response.data.success){
             vm.$router.push('/index');
         }

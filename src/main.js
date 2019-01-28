@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
+import Vuex from 'vuex';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 import 'bootstrap';
@@ -18,6 +19,7 @@ import dateFilter from './filters/date';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
+Vue.use(Vuex)
 
 Validator.localize('zh_TW',zhTWValidate);
 Vue.use(VeeValidate, {

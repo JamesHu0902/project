@@ -10,7 +10,7 @@
       placeholder="Password" v-model="user.password" required>
       <div class="checkbox mb-3">
         <label>
-          <input type="checkbox" value="remember-me"> Remember me
+          <input type="checkbox" value="remember-me"> 記住我
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
@@ -35,11 +35,15 @@ export default {
         const api = `${process.env.APIPATH}/admin/signin`;
         const vm = this;
         this.$http.post(api,vm.user).then((response) => {
-            console.log(response.data)
+            console.log('登入成功')
             if(response.data.success){
                 vm.$router.push('/admin/products')
             }
         })
+    },
+    pass(){
+      const vm = this;
+      vm.$router.push('/admin/products')
     },  
   }
 }
