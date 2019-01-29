@@ -16,7 +16,7 @@
             <tbody>
                 <tr v-for="(item) in products" :key="item.id">
                     <td>{{item.category}}</td>
-                    <td>{{item.title}}</td>
+                    <td><i class="fas fa-crown" v-if="item.hotcake"></i>{{item.title}}</td>
                     <td class="text-right">
                     {{item.origin_price | currency}}
                     </td>  
@@ -55,6 +55,7 @@
                 </li>
             </ul>
         </nav>
+        
         <!-- Modal -->
         <div class="modal fade" id="productModal" tabindex="-1" role="dialog"
         aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -152,6 +153,16 @@
                         id="is_enabled">
                         <label class="form-check-label" for="is_enabled">
                         是否啟用
+                        </label>
+                    </div>
+                    </div>
+                    <div class="form-group">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox"
+                        v-model="tempProduct.hotcake"
+                        id="hotcake">
+                        <label class="form-check-label" for="hotcake">
+                        熱賣商品
                         </label>
                     </div>
                     </div>

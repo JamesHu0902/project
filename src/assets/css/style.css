@@ -106,7 +106,7 @@ padding: 30px 0;
     text-align: center;
     width: 50px;
     position: fixed;
-    top:65px;
+    bottom:65px;
     right: 20px;
     z-index: 1001;
 }
@@ -138,7 +138,7 @@ padding: 30px 0;
     right: 11px;
     text-align: center;
     text-shadow: 0 0 0;
-    top: 55px;
+    bottom: 105px;
     width: 20px;
     z-index: 1001;
 }

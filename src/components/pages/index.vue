@@ -3,34 +3,8 @@
         <loading :active.sync="isLoading"></loading>
         <Alert></Alert>
         <IndexNavbar></IndexNavbar>
-        <!-- 輪播開始 -->
-            <div id="carouselExampleIndicators" class="carousel slide mt-5" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="../../../static/images/banner-1.jpg" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="../../../static/images/banner-2.jpg" alt="Third slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="../../../static/images/banner-3.jpg" alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        <!-- 輪播結束 -->
+        <topswiper/>
+        
         <img id="Positioning"  class="rounded mx-auto d-block mt-3" src="../../../static/images/icon_title.png" alt="First slide">
 
         <div class="container">
@@ -147,6 +121,7 @@ import $ from "jquery";
 import CartModal from './CartModal.vue';
 import IndexNavbar from './indexNavbar.vue';
 import Alert from '../AlertMessage';
+import topswiper from './topswiper';
 export default {
     
 data() {
@@ -166,7 +141,8 @@ return {
 components:{
         CartModal,
         Alert,
-        IndexNavbar
+        IndexNavbar,
+        topswiper
     },
 methods: {
     change(visibility){

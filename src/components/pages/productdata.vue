@@ -13,7 +13,7 @@
                         <p class="blockquote-footer text-right">{{ product.description }}</p>
                     </blockquote>
                     <!-- 分隔 -->
-                    <div class="border border-primary  p-5 mt-5">
+                    <div class="border border-primary  p-5 mt-5 bg-light">
                         <div class="d-flex justify-content-between align-items-baseline">
                         <!-- <div class="h4" v-if="!product.price">{{ product.origin_price }} 元</div> -->
                         <del class="h6" v-if="product.price < product.origin_price">原價 {{ product.origin_price }} 元</del>

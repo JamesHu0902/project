@@ -1,16 +1,26 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
+// 引用 AJAX 套件
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import Vuex from 'vuex';
+// 引用 Loading 套件
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+// 引用 BS4
 import 'bootstrap';
+
+// 引用 VueAwesomeSwiper
+import VueAwesomeSwiper from 'vue-awesome-swiper';
+import 'swiper/dist/css/swiper.css';
+
+// 引用驗證套件 + 在地化語系
 // import VeeValidate from 'vee-validate';
 import zhTWValidate from 'vee-validate/dist/locale/zh_TW';
 import VeeValidate, { Validator } from 'vee-validate';
 
+// 引用自定義
 import App from './App';
 import router from './router';
 import './bus';
@@ -19,7 +29,8 @@ import dateFilter from './filters/date';
 
 Vue.config.productionTip = false;
 Vue.use(VueAxios, axios);
-Vue.use(Vuex)
+Vue.use(Vuex);
+Vue.use(VueAwesomeSwiper);
 
 Validator.localize('zh_TW',zhTWValidate);
 Vue.use(VeeValidate, {

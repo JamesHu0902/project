@@ -2,6 +2,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import Router from 'vue-router';
+
 // import HelloWorld from '@/components/HelloWorld';
 // 自訂分頁元件
 import Dashboard from '@/components/Dashboard';
@@ -17,9 +18,11 @@ import OrderInfo from '@/components/pages/OrderInfo';
 import Payment from '@/components/pages/payment';
 import Featuredproducts from '@/components/pages/Featuredproducts';
 import category from '@/components/pages/category';
+import aboutus from '@/components/pages/aboutus';
 
-Vue.use(Router)
-Vue.use(Vuex)
+Vue.use(Router);
+Vue.use(Vuex);
+
 
 export default new Router({
   routes: [
@@ -54,6 +57,12 @@ export default new Router({
           path: '/productdata/:id',
           name: 'productdata',
           component: productdata,
+
+        },
+        {
+          path: '/aboutus',
+          name: 'aboutus',
+          component: aboutus,
 
         },
         

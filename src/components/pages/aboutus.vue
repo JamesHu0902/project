@@ -1,12 +1,10 @@
 <template>
     <div class="container mb-3 mt-4">
-        <div class="section-title my-3 text-center">
-            <h4>熱銷商品</h4>
-        </div>
-        <swiper :options="swiperOption" class="hotSwiper" v-if="filterProducts.length>0">
+        
+        <swiper :options="swiperOption" class="topSwiper" v-if="filterProducts.length>0">
             <swiper-slide v-for="item in filterProducts" :key="item.id">
             <div class="slide " >
-                <div class="slide mb-4" >
+                <div class="slide col mb-4" >
                     <div class="card border-0 shadow-sm">
                         <div style="height: 150px; background-size: 
                         cover; background-position: center" :style="{backgroundImage:`url(${item.imageUrl})`}">
@@ -54,7 +52,7 @@
 import $ from 'jquery';
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
-name: 'HotCake',
+name: 'aboutus',
 data() {
     return {
         products:[],
@@ -63,39 +61,21 @@ data() {
         },
         isLoading:false,
         swiperOption: {
-            slidesPerView:3,
+            slidesPerView: 3,
             spaceBetween: 30,
             slidesPerGroup: 3,
             loop: true,
             autoplay: {
-                delay: 3000,
-                disableOnInteraction: true,
+            delay: 3000,
             },
             loopFillGroupWithBlank: true,
             pagination: {
                 el: '.swiper-pagination',
                 clickable: true
             },
-            breakpoints: {
-                //斷點
-                // when window width is <= 320px
-                480: {
-                slidesPerView: 1,
-                slidesPerGroup:1,
-                spaceBetween: 10
-                },
-                // when window width is <= 480px
-                767: {
-                slidesPerView: 2,
-                slidesPerGroup:2,
-                spaceBetween: 20
-                },
-                // when window width is <= 640px
-                992: {
-                slidesPerView: 3,
-                slidesPerGroup:3,
-                spaceBetween: 30
-                }
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
             },
             
         },
@@ -132,17 +112,15 @@ data() {
             const vm =this;
             const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/cart`;  
             vm.status.loadingItem = id;
-            const hotSwiper = document.querySelector('.hotSwiper');
-            hotSwiper.swiper.autoplay.stop();
             const cart ={
                 product_id:id,
                 qty,
             }
             this.$http.post(url,{data:cart}).then((response) => {
                 console.log('加入購物車');
+                
                 // $('#productModal').modal('hide');
                 // vm.getCart();
-                hotSwiper.swiper.autoplay.start();
                 vm.$bus.$emit('getcart');
                 vm.$bus.$emit('message:push', `${title}加到購物車囉！`, 'success');
                 vm.status.loadingItem = '';
@@ -168,20 +146,15 @@ data() {
         this.getProducts();
         
     },
-    updated(){
-        $('.hotSwiper').on("mouseenter",function(){
-            this.swiper.autoplay.stop();
-        });
-        $('.hotSwiper').on("mouseleave",function(){
-            this.swiper.autoplay.start();
-        });
-    },
 }
 </script>
 
 <style lang="scss" scoped>
 .swiper-container{
+    height: 250px;
+    @media (min-width: 768px) {
     height: 380px;
+    }   
 }
 
 </style>
