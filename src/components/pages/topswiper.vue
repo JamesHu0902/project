@@ -38,13 +38,13 @@ data() {
         },
     sliderImg:[
         {
-            imgPath:'../../../static/images/banner-1.jpg',
+            imgPath:'./static/images/banner-1.jpg',
             },
             {
-            imgPath:'../../../static/images/banner-2.jpg',
+            imgPath:'./static/images/banner-2.jpg',
             },
             {
-            imgPath:'../../../static/images/banner-3.jpg',
+            imgPath:'./static/images/banner-3.jpg',
             }
         ]
         }
