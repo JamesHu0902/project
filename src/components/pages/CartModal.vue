@@ -1,6 +1,6 @@
 <template>
     <div>
-        
+        <loading :active.sync="isLoading"></loading>
         <div class="container fixed-top">
             <div class="row">
                 <div class="col-md-2 order-1 order-sm-2 text-center">
@@ -32,21 +32,25 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <div class="row mt-4" id="cart">
-                            <div class="col-11 container" v-if="cart.final_total>0">
+                        <div class="row my-4 ml-3" id="cart">
+                            <div class="col-11" v-if="cart.final_total>0">
                                 <table class="table">
                                     <thead>
-                                        <th></th>
-                                        <th>品名</th>
-                                        <th>數量</th>
-                                        <th>單價</th>
+                                        <tr>
+                                            <th></th>
+                                            <th>品名</th>
+                                            <th>數量</th>
+                                            <th>單價</th> 
+                                        </tr>
+                                        
                                     </thead>
                                     <tbody>
                                         <tr v-for="item in cart.carts" :key="item.id">
                                         <td class="align-middle">
                                             <button type="button" class="btn btn-outline-danger btn-sm" 
                                             @click="removeCartItem(item.id,item.product.title)">
-                                            <i class="far fa-trash-alt"></i>
+                                            <i class="fas fa-spinner fa-spin" v-if="status.loadingItem === item.id"></i>
+                                            <i class="far fa-trash-alt" v-if="status.loadingItem !== item.id"></i>
                                             </button>
                                         </td>
                                         <td class="align-middle">
@@ -143,7 +147,7 @@ export default {
             const url = `${process.env.APIPATH}/api/${
             process.env.CUSTOMPATH
             }/cart/${id}`;
-
+            vm.status.loadingItem =id;
             vm.isLoading = true;
             this.$http.delete(url).then(response => {
             // vm.cart = response.data.data;
@@ -153,19 +157,19 @@ export default {
             vm.isLoading = false;
             });
         },
-        addCouponCode() {
-            const vm = this;
-            const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/coupon`;
-            const coupon = {
-            code: vm.coupon_code
-            };
-            vm.isLoading = true;
-            this.$http.post(url, { data: coupon }).then(response => {
-            console.log('加入優惠卷');
-            vm.getCart();
-            vm.isLoading = false;
-            });
-        },
+        // addCouponCode() {
+        //     const vm = this;
+        //     const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/coupon`;
+        //     const coupon = {
+        //     code: vm.coupon_code
+        //     };
+        //     vm.isLoading = true;
+        //     this.$http.post(url, { data: coupon }).then(response => {
+        //     console.log('加入優惠卷');
+        //     vm.getCart();
+        //     vm.isLoading = false;
+        //     });
+        // },
         gotoPay(){
             this.$router.push('/customer_checkout');
             $('#cartModal').modal('hide');

@@ -30,10 +30,13 @@
                         </div>
                         <table class="table" v-if="cart.final_total>0">
                             <thead>
-                                <th></th>
-                                <th>品名</th>
-                                <th>數量</th>
-                                <th>單價</th>
+                                <tr>
+                                    <th></th>
+                                    <th>品名</th>
+                                    <th>數量</th>
+                                    <th>單價</th> 
+                                </tr>
+                                
                             </thead>
                             <tbody>
                                 <tr v-for="item in cart.carts" :key="item.id">

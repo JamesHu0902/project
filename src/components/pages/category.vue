@@ -7,7 +7,7 @@
             <div class="row mt-4">
             <!-- 左側按鈕 -->
                 <!-- sm按鈕 -->
-                <div class="container">
+                <div class="">
                     <div class="row  text-center">
                         <div class="col-10 btn-group d-md-none mb-1 mx-auto" role="group" aria-label="Basic example">
                             <button type="button" @click="putvisibility('all')" :class="{'active':visibility=='all'}"
@@ -49,7 +49,7 @@
                 </div>
             <!-- 左側按鈕 -->
             <!-- 右側商品 -->
-                <div class="col-md-10 container">
+                <div class="col-md-10 ">
                     <div class="row">
                         <div class="col-lg-4 col-md-6 mb-4" v-for="item in filterProducts" :key="item.id">
                             <div class="card border-0 shadow-sm">

@@ -14,18 +14,22 @@
                 <ul class="navbar-nav mr-auto text-nowrap">
                     
                     <li class="nav-item" >
-                    <a class="nav-link" href="#" @click="gohome">首頁</a>
+                        <router-link to="/" class="nav-link">
+                            首頁
+                        </router-link>
                     </li>
                     <li class="nav-item" >
-                    <a class="nav-link" href="#" @click="gotoshop">商品</a>
+                        <router-link to="/category" class="nav-link">
+                            商品
+                        </router-link>
                     </li>
-                    <li class="nav-item" >
-                    <a class="nav-link" href="#" @click="gotous">關於我們</a>
+                    <!-- <li class="nav-item" >
+                    <a class="nav-link" href="#" @click="gotous">關於我們</a> -->
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="#" @click="adminLogin">
+                        <router-link to="/login" class="nav-link">
                             <i class="fa fa-user"></i>管理者登入
-                        </a>
+                        </router-link>
                     </li>
                     
                 </ul>
@@ -43,23 +47,7 @@ export default {
         }
     },
     methods: {
-    gohome(){
-        const vm = this;
-        vm.$router.push("/");
     },
-    gotoshop(){
-        const vm = this;
-        vm.$router.push("/category");
-    },
-    gotous(){
-        const vm = this;
-        vm.$router.push("/aboutus");
-    },
-    adminLogin() {
-        const vm = this;
-        vm.$router.push("/login");
-    },
-    }
 }
 </script>
 <style scoped>
