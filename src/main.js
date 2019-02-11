@@ -24,7 +24,7 @@ import VeeValidate, { Validator } from 'vee-validate';
 import App from './App';
 import router from './router';
 import './bus';
-import currencyFilter from'./filters/currency';
+import currencyFilter from './filters/currency';
 import dateFilter from './filters/date';
 
 Vue.config.productionTip = false;
@@ -32,13 +32,13 @@ Vue.use(VueAxios, axios);
 Vue.use(Vuex);
 Vue.use(VueAwesomeSwiper);
 
-Validator.localize('zh_TW',zhTWValidate);
+Validator.localize('zh_TW', zhTWValidate);
 Vue.use(VeeValidate, {
-  locale:'zh_TW',
+  locale: 'zh_TW',
 });
 
-Vue.component('Loading',Loading);
-Vue.filter('currency', currencyFilter)
+Vue.component('Loading', Loading);
+Vue.filter('currency', currencyFilter);
 Vue.filter('date', dateFilter);
 
 axios.defaults.withCredentials = true;
@@ -47,28 +47,26 @@ new Vue({
   el: '#app',
   router,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 });
-
 
 
 router.beforeEach((to, from, next) => {
   console.log('to', to, 'from', from, 'next', next);
   // ...
-  if(to.meta.requiresAuth){
+  if (to.meta.requiresAuth) {
     const api = `${process.env.APIPATH}/api/user/check`;
     axios.post(api).then((response) => {
-        console.log(response.data);
-        if(response.data.success){
-          next();
-        }else{
-          next({
-            path:'/login',
-          })
-        }
+      console.log(response.data);
+      if (response.data.success) {
+        next();
+      } else {
+        next({
+          path: '/login',
+        });
+      }
     });
-  }else{
+  } else {
     next();
   }
-  
 });

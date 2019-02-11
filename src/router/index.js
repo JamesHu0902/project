@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 // 官方元件
 import Vue from 'vue';
 import Vuex from 'vuex';
@@ -12,13 +13,13 @@ import Coupons from '@/components/pages/Coupons';
 import Orders from '@/components/pages/Orders';
 import Allproducts from '@/components/pages/Allproducts';
 import CustomerCheckout from '@/components/pages/CustomerCheckout';
-import index from '@/components/pages/index';
-import productdata from '@/components/pages/productdata';
+import Index from '@/components/pages/Index';
+import Productdata from '@/components/pages/Productdata';
 import OrderInfo from '@/components/pages/OrderInfo';
-import Payment from '@/components/pages/payment';
+import Payment from '@/components/pages/Payment';
 import Featuredproducts from '@/components/pages/Featuredproducts';
-import category from '@/components/pages/category';
-import aboutus from '@/components/pages/aboutus';
+import Category from '@/components/pages/Category';
+import Aboutus from '@/components/pages/Aboutus';
 
 Vue.use(Router);
 Vue.use(Vuex);
@@ -32,15 +33,15 @@ export default new Router({
     //   component:home, //對應的元件
     // }
     {
-      path:'*',
-      redirect:'/',
+      path: '*',
+      redirect: '/',
     },
-    //首頁
+    //  首頁
     {
       path: '/',
       name: '',
-      component: index,
-      children:[
+      component: Index,
+      children: [
         {
           path: '/',
           name: 'Featuredproducts',
@@ -48,28 +49,25 @@ export default new Router({
 
         },
         {
-          path: '/category',
-          name: 'category',
-          component: category,
-          
+          path: '/Category',
+          name: 'Category',
+          component: Category,
         },
         {
-          path: '/productdata/:id',
-          name: 'productdata',
-          component: productdata,
+          path: '/Productdata/:id',
+          name: 'Productdata',
+          component: Productdata,
 
         },
         {
-          path: '/aboutus',
-          name: 'aboutus',
-          component: aboutus,
+          path: '/Aboutus',
+          name: 'Aboutus',
+          component: Aboutus,
 
         },
-        
-      ]
-      
+      ],
     },
-    //結帳頁面
+    //  結帳頁面
     {
       path: '/customer_checkout',
       name: '',
@@ -81,34 +79,34 @@ export default new Router({
           component: OrderInfo,
         },
         {
-          path: 'payment/:orderId',
+          path: 'Payment/:orderId',
           name: 'Payment',
           component: Payment,
         },
-      ]
+      ],
     },
-    //登入頁面
+    //  登入頁面
     {
-      path:'/login',
-      name:'Login',
-      component:Login,
+      path: '/login',
+      name: 'Login',
+      component: Login,
     },
-    //管理者頁面
-    //產品列表
+    //  管理者頁面
+    //  產品列表
     {
       path: '/admin',
       name: 'Dashboard_Products',
       component: Dashboard,
-      children:[
+      children: [
         {
           path: 'products',
           name: 'Products',
           component: Products,
           meta: { requiresAuth: true },
         },
-      ]
+      ],
     },
-    //訂單列表
+    //  訂單列表
     {
       path: '/admin',
       name: 'Dashboard_Orders',
@@ -120,9 +118,9 @@ export default new Router({
           component: Orders,
           meta: { requiresAuth: true },
         },
-      ]
+      ],
     },
-    //優惠眷
+    //  優惠眷
     {
       path: '/admin',
       name: 'Dashboard_Coupons',
@@ -134,11 +132,11 @@ export default new Router({
           component: Coupons,
           meta: { requiresAuth: true },
         },
-      ]
+      ],
     },
 
 
-    //測試使用 模擬訂單
+    //  測試使用 模擬訂單
     {
       path: '/test',
       name: 'Dashboard_CustomerOrders',
@@ -154,7 +152,7 @@ export default new Router({
           name: 'test_CustomerCheckout',
           component: CustomerCheckout,
         },
-      ]
+      ],
     },
-  ]
-})
+  ],
+});

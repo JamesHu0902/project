@@ -119,9 +119,9 @@
 <script>
 import $ from "jquery";
 import CartModal from './CartModal.vue';
-import IndexNavbar from './indexNavbar.vue';
+import IndexNavbar from './IndexNavbar.vue';
 import Alert from '../AlertMessage';
-import topswiper from './topswiper';
+import topswiper from './Topswiper';
 export default {
     
 data() {
